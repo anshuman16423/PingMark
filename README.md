@@ -1,5 +1,5 @@
 # PingMark
-Discord BOT built on python to handle competitive programming utilities on the IIITDMJ discord server 
+Discord BOT built on python to handle competitive programming utilities on the Institute discord server 
 - The BOT aims to simplify viewing user activities, contest ranklists, rating changes etc. on competitve programming platforms [codechef and codeforces]
 - The BOT bundles all the handles of the users in the server in a single ranklist to simplyfy the search of common ranklist for the server.
 - The BOT also facillitates easy sharing of previous submissions made on the CP platforms on the server itself, and hence making the CP Discussions on the server smoother than ever! .
