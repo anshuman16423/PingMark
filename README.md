@@ -7,6 +7,12 @@ Discord BOT built on python to handle competitive programming utilities on the I
 - The BOT makes the use of the codeforces API.
 - The python script uses python's pickle module to store handles of the server users in the database.
 
+
+## Why this BOT ?
+Competitive programmers regularly check for the ranklists/user ratings changes/upcoming contests etc , this BOT solves the problem by quickly giving results on one line commands instead of browsing through multiple pages.
+Moreover the BOT can be easily accesed by smartphones as well as PC's.
+BOT also helps in quality discussions on the CP forum by posting the required source code in the conversation  itself, hence making the forum efficient.
+
 ## Requirements
 
 - Python 3.7
