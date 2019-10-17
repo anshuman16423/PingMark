@@ -13,6 +13,15 @@ Discord BOT built on python to handle competitive programming utilities on the I
 	-	> pip3 install bs4
 	-	> pip3 install discord
 
+### Getting started with BOT commands
+ - add_CC::username -> maps a valid codechef username to the server user.
+ - add_CF::username -> maps a valid codeforces username to the server user.
+ - CC_rating::username -> extracts the current codechef user rating.
+ - CF_rating::username -> extracts current codeforces user rating. when given username "all" prints a list of all user ratings in the server.
+ - CF_code::contest_code::solution_code -> prints the source code for the submission made on codeforces
+ - CF_contest::contest_code -> returns ranklist for a codeforces round filtered for the server memebers.
+
+
 
 
 
