@@ -1,9 +1,11 @@
 # PingMark
-Discord BOT built on python to handle competitive programming utilities on the Institute discord server 
+Discord BOT built on python to handle competitive programming utilities on the Institute discord server.
+
 - The BOT aims to simplify viewing user activities, contest ranklists, rating changes etc. on competitve programming platforms [codechef and codeforces]
 - The BOT bundles all the handles of the users in the server in a single ranklist to simplyfy the search of common ranklist for the server.
 - The BOT also facillitates easy sharing of previous submissions made on the CP platforms on the server itself, and hence making the CP Discussions on the server smoother than ever! .
 - The BOT makes the use of the codeforces API.
+- The python script uses python's pickle module to store handles of the server users in the database.
 
 ## Requirements
 
@@ -11,6 +13,7 @@ Discord BOT built on python to handle competitive programming utilities on the I
 - Installing Additional Python Libraries
 	-	> pip3 install bs4
 	-	> pip3 install discord
+- Create a file token.txt in the same directory and copy paste your discord BOT token in the text file.
 
 ### Getting started with BOT commands
  - add_CC::username -> maps a valid codechef username to the server user.
