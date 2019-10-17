@@ -285,6 +285,7 @@ async def on_message(message):
             return
         elif command=='help':
             await message.channel.send("List commands that can be used")
+            # help section pending !!
             for comm in commands:
                 if comm!='help':
                     await message.channel.send(comm)
