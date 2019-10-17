@@ -3,7 +3,7 @@ import pickle
 import discord
 from requests import request
 from bs4 import BeautifulSoup
-commands = ['add_CC','add_CF','CC_rating','CF_rating','CF_code','CF_contest','help']
+commands = ['add_CC','add_CF','CC_rating','CF_rating','CF_code','CF_contest','help','CC_code']
 def get_rank(rating):
     if rating<1200:
         return (0,'newbie')
@@ -283,7 +283,37 @@ async def on_message(message):
             final_ranklist += '```'
             await message.channel.send(final_ranklist)
             return
-        elif command=='help':
+        elif command == 'CC_code':
+            if len(attr)!=1:
+                await message.channel.send('Invalid command structure')
+                return
+            url = "https://codechef.com/viewsolution/"+str(attr[0])
+            page = request('GET',url)
+            print(url)
+            if not page.ok:
+                await message.channel.send('Invalid code!!!')
+                return
+            soup = BeautifulSoup(page.content)
+            content = soup.find('div',attrs={'class':'ace_content'})
+            if not content:
+                await message.channel.send('check your contest code')
+                return
+            for i in content:
+                code+=i
+            code+="```"
+            length = len(code)
+            if length>2000:
+                i=0
+                code = code[7:]
+                code = code[:-3]
+                while i<length:
+                    code_new=code[i:i+1900]
+                    await message.channel.send("```cpp\n"+code_new+"```")
+                    i+=1900
+                return
+            await message.channel.send(code)
+            return
+        elif command == 'help':
             await message.channel.send("List commands that can be used")
             # help section pending !!
             for comm in commands:
