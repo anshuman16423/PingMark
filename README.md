@@ -10,8 +10,8 @@ Discord BOT built on python to handle competitive programming utilities on the I
 
 - Python 3.7
 - Installing Additional Python Libraries
-> pip3 install bs4
-> pip3 install discord
+	-	> pip3 install bs4
+	-	> pip3 install discord
 
 
 
