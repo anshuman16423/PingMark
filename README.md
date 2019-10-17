@@ -21,8 +21,8 @@ Discord BOT built on python to handle competitive programming utilities on the I
  - CF_contest::contest_code -> returns ranklist for a codeforces round filtered for the server memebers.
 
 ### upcoming features / commands
- - [ ] CC_code -> CF_code utility for codechef.
- - [ ] CC_contest -> CC_code utility for codechef.
+ - [ ] CC_code -> CF_code for codechef.
+ - [ ] CC_contest -> CF_contest for codechef.
  - [ ] CF_question -> display codeforces question to facillitate question discussions in the server.
  - [ ] add_CF -> further enhance the authenticity of handles mapped with a server client.
  - [ ] CF_alarm -> set codeforces event reminders.
