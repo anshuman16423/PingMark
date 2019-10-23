@@ -26,11 +26,12 @@ BOT also helps in quality discussions on the CP forum by posting the required so
  - add_CF::username -> maps a valid codeforces username to the server user.
  - CC_rating::username -> extracts the current codechef user rating.
  - CF_rating::username -> extracts current codeforces user rating. when given username "all" prints a list of all user ratings in the server.
- - CF_code::contest_code::solution_code -> prints the source code for the submission made on codeforces
+ - CF_code::contest_code::solution_code -> prints the source code for the submission made on codeforces.
  - CF_contest::contest_code -> returns ranklist for a codeforces round filtered for the server memebers.
+ - CC_code::submission_number -> prints the source code of a submission made on codechef.
 
 ### upcoming features / commands
- - [x] CC_code -> CF_code for codechef.
+ 
  - [ ] CC_contest -> CF_contest for codechef.
  - [ ] CF_question -> display codeforces question to facillitate question discussions in the server.
  - [ ] add_CF -> further enhance the authenticity of handles mapped with a server client.
