@@ -30,7 +30,7 @@ BOT also helps in quality discussions on the CP forum by posting the required so
  - CF_contest::contest_code -> returns ranklist for a codeforces round filtered for the server memebers.
 
 ### upcoming features / commands
- - [ ] CC_code -> CF_code for codechef.
+ - [x] CC_code -> CF_code for codechef.
  - [ ] CC_contest -> CF_contest for codechef.
  - [ ] CF_question -> display codeforces question to facillitate question discussions in the server.
  - [ ] add_CF -> further enhance the authenticity of handles mapped with a server client.
