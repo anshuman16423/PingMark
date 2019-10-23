@@ -1,8 +1,11 @@
 import os
 import pickle
 import discord
+import json
 from requests import request
 from bs4 import BeautifulSoup
+
+
 commands = ['add_CC','add_CF','CC_rating','CF_rating','CF_code','CF_contest','help','CC_code']
 def get_rank(rating):
     if rating<1200:
@@ -287,19 +290,25 @@ async def on_message(message):
             if len(attr)!=1:
                 await message.channel.send('Invalid command structure')
                 return
-            url = "https://codechef.com/viewsolution/"+str(attr[0])
-            page = request('GET',url)
-            print(url)
+            url = "https://www.codechef.com/viewsolution/"+str(attr[0])
+            page = request('GET',url, headers={'User-Agent': 'Mozilla/5.0'})
             if not page.ok:
                 await message.channel.send('Invalid code!!!')
                 return
             soup = BeautifulSoup(page.content)
-            content = soup.find('div',attrs={'class':'ace_content'})
-            if not content:
-                await message.channel.send('check your contest code')
+            content = soup.find_all('script')
+            data=''
+            for block in content:
+                if 'meta_info' in block.text:
+                    data=block.text
+                    break
+            if not data:
+                await message.channel.send('Something went wrong!!')
                 return
-            for i in content:
-                code+=i
+            data = data[data.find('{'):-2]
+            data = json.loads(data)
+            code="```cpp\n"
+            code+=data['data']['plaintext']
             code+="```"
             length = len(code)
             if length>2000:
@@ -315,7 +324,7 @@ async def on_message(message):
             return
         elif command == 'help':
             await message.channel.send("List commands that can be used")
-            # help section pending !!
+            # TODO
             for comm in commands:
                 if comm!='help':
                     await message.channel.send(comm)
