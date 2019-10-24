@@ -2,6 +2,7 @@ import os
 import pickle
 import discord
 import json
+from time import sleep
 from requests import request
 from bs4 import BeautifulSoup
 
@@ -207,6 +208,7 @@ async def on_message(message):
         elif command=='CF_rating':
             user = attr[0]
             if user=='all':
+                await message.channel.send('Generating rated user list.\nThis may take some time.')
                 fin1 =open('cf.dat','rb')
                 all_users = []
                 c=0
@@ -218,6 +220,10 @@ async def on_message(message):
                         all_users.append((rating, user, owner))
                     except EOFError:
                         break
+                    except IndexError:
+                        continue
+                        #rating = getCF_user(user)
+                        #all_users.append((rating, user, owner)) 
                     
                 fin1.close()
                 all_users.sort(reverse=True)
@@ -227,6 +233,14 @@ async def on_message(message):
                 for user in all_users:
                     result+=str(c)+"    "+str(user[0])+"     "+user[1]+(" "*(15-len(user[1])))+user[2]+'\n'
                     c+=1
+                if len(result)>=1997:
+                    result = result[4:]
+                    i=0
+                    while i<len(result):
+                        msg = result[i:i+1990]
+                        await message.channel.send("```\n"+msg+"\n```")
+                        i+=1900
+                    return
                 await message.channel.send(result+'```')
                 return
             rating = getCF_user(user)
