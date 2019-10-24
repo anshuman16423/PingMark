@@ -213,14 +213,16 @@ async def on_message(message):
                 while 1:
                     try:
                         owner, user = pickle.load(fin1)
-                        #print(owner,user)
+                        print(owner,user)
                         rating = getCF_user(user)
                         all_users.append((rating, user, owner))
-                    except:
+                    except EOFError:
                         break
+                    
                 fin1.close()
                 all_users.sort(reverse=True)
                 result='```'
+                print(len(all_users))
                 c=1
                 for user in all_users:
                     result+=str(c)+"    "+str(user[0])+"     "+user[1]+(" "*(15-len(user[1])))+user[2]+'\n'
@@ -325,9 +327,10 @@ async def on_message(message):
         elif command == 'help':
             await message.channel.send("List commands that can be used")
             # TODO
-            for comm in commands:
-                if comm!='help':
-                    await message.channel.send(comm)
+            message_str="\n".join(commands)
+            message_str+='\n'
+            message_str+="For more details or contributing visit https://github.com/anshuman16423/PingMark"
+            await message.channel.send(message_str)
         
             
         
